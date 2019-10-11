@@ -17,12 +17,12 @@ class RequestHTML:
         list_links = self.CreateLink.create_links(int(max_page))
 
         with PoolExecutor(max_workers=6) as executor:
-            for _ in executor.map(self.extract_page_html, list_links):
+            for _ in executor.map(self._extract_page_html, list_links):
                 pass
 
         return self._ListPages
 
-    def extract_page_html(self, url):
+    def _extract_page_html(self, url):
         demand = Request(url, headers=self.UserAgent)
         page = urlopen(demand)
         page_html = page.read()
@@ -32,12 +32,22 @@ class RequestHTML:
     def get_page_link(self):
         return self.CreateLink.get_main_link()
 
-    def get_page_html(self):
+    def get_page_main_html(self):
         demand = Request(self.CreateLink.get_main_link(), headers=self.UserAgent)
         page = urlopen(demand)
         page_html = page.read()
         page.close()
         return page_html
+
+    def get_page_html_model(self, brand):
+        self.CreateLink.set_car_mark(brand)
+        demand = Request(self.CreateLink.get_main_link(), headers=self.UserAgent)
+        page = urlopen(demand)
+        page_html = page.read()
+        return page_html
+        page.close()
+
+
 
 
 

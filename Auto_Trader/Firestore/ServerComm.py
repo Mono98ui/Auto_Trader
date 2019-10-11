@@ -14,3 +14,6 @@ class ServerComm:
     def create_brands(self, brand_name):
         dic = {'name': brand_name.title()}
         self.db_cars.document(brand_name.title()).set(dic)
+
+    def create_model(self):
+        pass

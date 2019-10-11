@@ -5,10 +5,10 @@ def main():
 
     data = Extractor()
     # analyse the basic link first
-    data.extract_brands()
+    brands = data.extract_brands()
 
     # After choosing the brand,
-    # data.extract_model()
+    data.extract_model(brands)
 
     # Then, choose the year
     # data.extract_years()

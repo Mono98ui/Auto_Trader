@@ -53,7 +53,8 @@ class Extractor:
     def extract_brands(self):
 
         clean_name = ""
-        page_html = self._client.get_page_html()
+        list_brand = []
+        page_html = self._client.get_page_main_html()
         page_soup = Soup(page_html, "lxml")
 
         list_brands = page_soup.findAll("ul", {"id": "rfMakes"})
@@ -67,13 +68,19 @@ class Extractor:
                 for x in range(len(separate_name)-1):
                     clean_name += separate_name[x]+" "
 
-                self._DataBase.create_brands(clean_name.strip())
+                # Temporaire
+                # self._DataBase.create_brands(clean_name.strip())
+                list_brand.append(clean_name.strip())
                 clean_name = ""
 
-    def extract_model(self):
+        return list_brand
+
+    def extract_model(self, brands):
 
         clean_name = ""
-        page_html = self._client.get_page_html()
+
+        page_html = self._client.get_page_html_model('ford')
+        # page_html = self._client.get_page_main_html()
         page_soup = Soup(page_html, "lxml")
 
         list_brands = page_soup.findAll("ul", {"id": "rfModel"})
@@ -89,8 +96,6 @@ class Extractor:
 
                 print(clean_name.strip())
                 clean_name = ""
-        self._web_driver.close()
-        self._web_driver.quit()
 
     def extract_years(self):
         page = self._client.get_page_link()
