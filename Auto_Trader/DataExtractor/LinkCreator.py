@@ -34,23 +34,20 @@ class LinkCreator:
             x += 1
         return self._links
 
-    def _next_page(self):
-
-        self._num_rcs += self._num_rcp
+    def _refresh_page(self):
         self._link = "https://www.autotrader.ca/cars/{0:s}{1:s}qc/montreal/" \
                      "?rcp={2:s}&rcs={3:s}&srt=3&{4:s}{05:s}prx=500&" \
                      "prv=Quebec&loc=Montreal%2C%20Qc&hprc=False&wcp=False&" \
                      "sts=New-Used&inMarket=advancedSearch".format(self._car_mark, self._car_model, str(self._num_rcp),
                                                                    str(self._num_rcs), self._car_year, self._car_mileage
                                                                    )
+
+    def _next_page(self):
+        self._num_rcs += self._num_rcp
+        self._refresh_page()
 
     def get_main_link(self):
-        self._link = "https://www.autotrader.ca/cars/{0:s}{1:s}qc/montreal/" \
-                     "?rcp={2:s}&rcs={3:s}&srt=3&{4:s}{05:s}prx=500&" \
-                     "prv=Quebec&loc=Montreal%2C%20Qc&hprc=False&wcp=False&" \
-                     "sts=New-Used&inMarket=advancedSearch".format(self._car_mark, self._car_model, str(self._num_rcp),
-                                                                   str(self._num_rcs), self._car_year, self._car_mileage
-                                                                   )
+        self._refresh_page()
         return self._link
 
     def set_car_mark(self, brand):
