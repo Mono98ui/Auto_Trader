@@ -11,6 +11,6 @@ class ServerComm:
         self._db = firestore.client()
         self.db_cars = self._db.collection(u'Cars')
 
-    def createBrands(self, brand_name):
+    def create_brands(self, brand_name):
         dic = {'name': brand_name.title()}
         self.db_cars.document(brand_name.title()).set(dic)

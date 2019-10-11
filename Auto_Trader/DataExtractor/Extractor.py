@@ -67,7 +67,7 @@ class Extractor:
                 for x in range(len(separate_name)-1):
                     clean_name += separate_name[x]+" "
 
-                self._DataBase.createBrands(clean_name.strip())
+                self._DataBase.create_brands(clean_name.strip())
                 clean_name = ""
 
     def extract_model(self):

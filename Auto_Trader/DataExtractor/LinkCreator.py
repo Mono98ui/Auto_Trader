@@ -7,15 +7,15 @@ class LinkCreator:
         self._num_rcs = 0
         self._num_rcp = 15
 
-        self._car_mark = 'ford/'
-        self._car_model = 'expedition/'
-        self._car_year = 'yRng=2007%2C2019&'
-        self._car_mileage = 'oRng=10000%2C200000&'
+        # self._car_mark = 'ford/'
+        # self._car_model = 'expedition/'
+        # self._car_year = 'yRng=2007%2C2019&'
+        # self._car_mileage = 'oRng=10000%2C200000&'
 
-        #self._car_mark = ''
-        #self._car_model = ''
-        #self._car_year = ''
-        #self._car_mileage = ''
+        self._car_mark = ''
+        self._car_model = ''
+        self._car_year = ''
+        self._car_mileage = ''
 
         self._link = "https://www.autotrader.ca/cars/{0:s}{1:s}qc/montreal/" \
                      "?rcp={2:s}&rcs={3:s}&srt=3&{4:s}{05:s}prx=500&" \

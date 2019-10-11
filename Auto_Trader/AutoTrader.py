@@ -5,7 +5,7 @@ def main():
 
     data = Extractor()
     # analyse the basic link first
-    # data.extract_brands()
+    data.extract_brands()
 
     # After choosing the brand,
     # data.extract_model()
@@ -14,8 +14,8 @@ def main():
     # data.extract_years()
 
     # At the end...
-    total = data.extract_data()
-    print(total)
+    # total = data.extract_data()
+    # print(total)
 
 
 if __name__ == '__main__':
