@@ -70,7 +70,7 @@ class Extractor:
 
                 # Temporaire
                 # self._DataBase.create_brands(clean_name.strip())
-                list_brand.append(clean_name.strip())
+                list_brand.append(clean_name.strip().lower().replace(" ", "%20"))
                 clean_name = ""
 
         return list_brand
@@ -79,23 +79,24 @@ class Extractor:
 
         clean_name = ""
 
-        page_html = self._client.get_page_html_model('ford')
-        # page_html = self._client.get_page_main_html()
-        page_soup = Soup(page_html, "lxml")
+        list_models = self._client.get_page_html_model(brands)
 
-        list_brands = page_soup.findAll("ul", {"id": "rfModel"})
+        for page_html in list_models:
+            page_soup = Soup(page_html, "lxml")
 
-        for brand in list_brands:
-            brand_names = brand.findAll("a")
+            list_brands = page_soup.findAll("ul", {"id": "rfModel"})
 
-            for name in brand_names:
-                separate_name = str(name.text).split(' ')
+            for brand in list_brands:
+                brand_names = brand.findAll("a")
 
-                for x in range(len(separate_name) - 1):
-                    clean_name += separate_name[x] + " "
+                for name in brand_names:
+                    separate_name = str(name.text).split(' ')
 
-                print(clean_name.strip())
-                clean_name = ""
+                    for x in range(len(separate_name) - 1):
+                        clean_name += separate_name[x] + " "
+
+                    print(clean_name.strip())
+                    clean_name = ""
 
     def extract_years(self):
         page = self._client.get_page_link()

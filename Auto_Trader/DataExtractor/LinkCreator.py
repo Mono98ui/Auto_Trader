@@ -26,7 +26,8 @@ class LinkCreator:
 
         self._links = []
 
-    def create_links(self, max_page):
+    def create_links_cars(self, max_page):
+        self._links.clear()
         x = 0
         while x < max_page:
             self._links.append(self._link)
@@ -50,5 +51,15 @@ class LinkCreator:
         self._refresh_page()
         return self._link
 
-    def set_car_mark(self, brand):
-        self._car_mark = '{}/'.format(brand)
+    def create_links_model(self, list_brand):
+        self._links.clear()
+        for brand in list_brand:
+            self._car_mark = '{}/'.format(brand)
+            self._refresh_page()
+            self._links.append(self._link)
+
+        return self._links
+
+
+
+

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b485d19c-7adc-4342-b648-593a34cc0120" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Auto_Trader/DataExtractor/WorkerGenerator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auto_Trader/DataExtractor/Extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auto_Trader/DataExtractor/Extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auto_Trader/DataExtractor/LinkCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auto_Trader/DataExtractor/LinkCreator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auto_Trader/DataExtractor/RequestHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auto_Trader/DataExtractor/RequestHTML.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570796318929</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Create refresh link method">
+      <created>1570814318258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570814318259</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +131,8 @@
     <MESSAGE value="Add lxml" />
     <MESSAGE value="Preparation access firebase" />
     <MESSAGE value="Changement on extract_model, but not complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changement on extract_model, but not complete" />
+    <MESSAGE value="Create refresh link method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create refresh link method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
