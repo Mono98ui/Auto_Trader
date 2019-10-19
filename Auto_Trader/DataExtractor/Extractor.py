@@ -79,17 +79,18 @@ class Extractor:
 
         clean_name = ""
 
-        list_models = self._client.get_page_html_model(brands)
+        list_brands = self._client.get_page_html_model(brands)
 
-        for page_html in list_models:
-            page_soup = Soup(page_html, "lxml")
+        for brand_key in list_brands:
+            page_soup = Soup(list_brands[brand_key], "lxml")
+            print(brand_key+"++++++++++++++")
 
-            list_brands = page_soup.findAll("ul", {"id": "rfModel"})
+            list_models = page_soup.findAll("ul", {"id": "rfModel"})
 
-            for brand in list_brands:
-                brand_names = brand.findAll("a")
+            for model in list_models:
+                models_names = model.findAll("a")
 
-                for name in brand_names:
+                for name in models_names:
                     separate_name = str(name.text).split(' ')
 
                     for x in range(len(separate_name) - 1):

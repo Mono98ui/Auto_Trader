@@ -51,14 +51,10 @@ class LinkCreator:
         self._refresh_page()
         return self._link
 
-    def create_links_model(self, list_brand):
-        self._links.clear()
-        for brand in list_brand:
-            self._car_mark = '{}/'.format(brand)
-            self._refresh_page()
-            self._links.append(self._link)
-
-        return self._links
+    def create_link_model(self, brand):
+        self._car_mark = '{}/'.format(brand)
+        self._refresh_page()
+        return self._link;
 
 
 

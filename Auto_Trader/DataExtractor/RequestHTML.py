@@ -10,6 +10,7 @@ class RequestHTML:
     def __init__(self):
 
         self._ListPages = []
+        self._PagesModel = {}
         self.CreateLink = LinkCreator()
         self.UserAgent = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 '
@@ -40,16 +41,19 @@ class RequestHTML:
         return page_html
 
     def get_page_html_model(self, list_brand):
-        self._ListPages.clear()
-        temp_list = self.CreateLink.create_links_model(list_brand)
-        self._workers.assign_worker(self._get_page_html_model, temp_list)
-        return self._ListPages
+        # self._ListPages.clear()
+        # temp_list = self.CreateLink.create_link_model(list_brand)
+        self._workers.assign_worker(self._get_page_html_model, list_brand)
+        # return self._ListPages
+        return self._PagesModel;
 
-    def _get_page_html_model(self, url):
+    def _get_page_html_model(self, brand):
+        url = self.CreateLink.create_link_model(brand)
         demand = Request(url, headers=self.UserAgent)
         page = urlopen(demand)
         page_html = page.read()
-        self._ListPages.append(page_html)
+        # self._ListPages.append(page_html)
+        self._PagesModel[brand] = page_html
         page.close()
 
 
